@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Зворотній зв’язок</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" role="button">До головної сторінки</a>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="feedback-title">
+      <h1 id="feedback-title">Зворотній зв’язок</h1>
+
+      <form action="index.html" method="get">
+        <fieldset>
+          <legend>Персональна інформація</legend>
+
+          <div>
+            <label for="fullname">Прізвище та ім’я</label>
+            <input type="text" id="fullname" name="fullname" required>
+          </div>
+
+          <div>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div>
+            <label for="age">Вік</label>
+            <input type="number" id="age" name="age" min="0" max="120" required>
+          </div>
+
+          <div>
+            <label for="education">Освіта</label>
+            <select id="education" name="education" required>
+              <option value="">--Оберіть освіту--</option>
+              <option value="повна">Повна</option>
+              <option value="неповна">Неповна</option>
+              <option value="вища">Вища</option>
+              <option value="професійна">Професійна</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="purpose">Мета зворотного зв’язку</label>
+          <select id="purpose" name="purpose" required>
+            <option value="">--Оберіть мету--</option>
+            <option value="співпраця">Співпраця</option>
+            <option value="скарга">Скарга на порушення права власності</option>
+            <option value="пропозиція">Пропозиція</option>
+            <option value="помилка">Наявність помилки</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="details"> <span style="color:blue;">Детально</span></label>
+          <textarea id="details" name="details" rows="6" cols="50" maxlength="1000"></textarea>
+        </div>
+
+        <div>
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">Я даю згоду на обробку наданої інформації</label>
+        </div>
+
+        <div>
+          <button type="submit">Відправити</button>
+          <button type="reset">Очистити</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
