@@ -94,7 +94,7 @@ address {
 }
 address:focus .contact-phone {
   border: 3px double black;
-  transition: border 3s;
+  transition: border 0s ease;
   transition-delay: 3s;
 }
 #purpose::before {
