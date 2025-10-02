@@ -1,97 +1,6 @@
-const records = [
-  {
-    id: 1,
-    directionName: "Система штучного інтелекту для освіти",
-    departmentName: "Кафедра комп'ютерних наук",
-    govermentInfo: "Міністерство освіти і науки України",
-    firstDayUsersCount: 25,
-    secondDayUsersCount: 32,
-    development_time: new Date("2025-06-01"),
-  },
-  {
-    id: 2,
-    directionName: "Математична платформа для онлайн-курсів",
-    departmentName: "Кафедра математики",
-    govermentInfo: "Міністерство освіти і науки України",
-    firstDayUsersCount: 18,
-    secondDayUsersCount: 24,
-    development_time: new Date("2025-06-02"),
-  },
-  {
-    id: 3,
-    directionName: "Віртуальна лабораторія з фізики",
-    departmentName: "Кафедра фізики",
-    govermentInfo: "Міністерство освіти і науки України",
-    firstDayUsersCount: 15,
-    secondDayUsersCount: 20,
-    development_time: new Date("2025-06-03"),
-  },
-  {
-    id: 4,
-    directionName: "Онлайн-симулятор хімічних реакцій",
-    departmentName: "Кафедра хімії",
-    govermentInfo: "Міністерство освіти і науки України",
-    firstDayUsersCount: 14,
-    secondDayUsersCount: 19,
-    development_time: new Date("2025-06-04"),
-  },
-  {
-    id: 5,
-    directionName: "Біоінформатична дослідницька система",
-    departmentName: "Кафедра біології",
-    govermentInfo: "Міністерство освіти і науки України",
-    firstDayUsersCount: 17,
-    secondDayUsersCount: 23,
-    development_time: new Date("2025-06-05"),
-  },
-  {
-    id: 6,
-    directionName: "Аналітична система для економічних прогнозів",
-    departmentName: "Кафедра економіки",
-    govermentInfo: "Міністерство економіки України",
-    firstDayUsersCount: 21,
-    secondDayUsersCount: 28,
-    development_time: new Date("2025-06-06"),
-  },
-  {
-    id: 7,
-    directionName: "Платформа електронного правосуддя",
-    departmentName: "Кафедра права",
-    govermentInfo: "Міністерство юстиції України",
-    firstDayUsersCount: 19,
-    secondDayUsersCount: 25,
-    development_time: new Date("2025-06-07"),
-  },
-  {
-    id: 8,
-    directionName: "Система підтримки медичних рішень",
-    departmentName: "Кафедра медицини",
-    govermentInfo: "Міністерство охорони здоров'я України",
-    firstDayUsersCount: 22,
-    secondDayUsersCount: 30,
-    development_time: new Date("2025-06-08"),
-  },
-  {
-    id: 9,
-    directionName: "Цифрова платформа психологічної допомоги",
-    departmentName: "Кафедра психології",
-    govermentInfo: "Міністерство освіти і науки України",
-    firstDayUsersCount: 20,
-    secondDayUsersCount: 27,
-    development_time: new Date("2025-06-09"),
-  },
-  {
-    id: 10,
-    directionName: "Система автоматичного перекладу текстів",
-    departmentName: "Кафедра філології",
-    govermentInfo: "Міністерство освіти і науки України",
-    firstDayUsersCount: 18,
-    secondDayUsersCount: 24,
-    development_time: new Date("2025-06-10"),
-  },
-];
 
-function sortByKey(key, records) {
+
+export function sortByKey(key, records) {
   return records.sort((a, b) => {
     const va = a[key];
     const vb = b[key];
@@ -101,7 +10,7 @@ function sortByKey(key, records) {
     return String(va).localeCompare(String(vb), "uk");
   });
 }
-function AvgInEqualDevelopmentTime() {
+export function AvgInEqualDevelopmentTime(records) {
   const checked = new Set();
 
   records.forEach((record) => {
@@ -128,7 +37,7 @@ function AvgInEqualDevelopmentTime() {
     checked.add(key);
   });
 }
-function maxByKey(key, records) {
+export function maxByKey(key, records) {
   const maxRecord = records.reduce(
     (max, r) => (r[key] > (max[key] ?? -Infinity) ? r : max),
     {}
@@ -139,7 +48,7 @@ function maxByKey(key, records) {
   return maxRecord;
 }
 
-function addNewRecord(record) {
+export function addNewRecord(record, records) {
   const hasEmpty = Object.values(record).some(
     (v) =>
       v === null ||
@@ -155,7 +64,7 @@ function addNewRecord(record) {
   }
 }
 
-function determineDevelopmentTime(departmentName) {
+export function determineDevelopmentTime(departmentName, records) {
   const directionsArr = records.filter(
     (r) => r.departmentName === departmentName
   );

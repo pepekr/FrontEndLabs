@@ -6,7 +6,7 @@ export class User
         this.lastname = lastname;
         this.age = age;
         this.education = education;
-        this.purposeofFeedback = purposeofFeedback;
+        this.purposeOfFeedback = purposeofFeedback;
         this.dateOfFeedback = dateOfFeedback 
     }
 

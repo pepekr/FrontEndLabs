@@ -1,4 +1,4 @@
-class UserService {
+export class UserService {
   #usersArray;
   constructor(users) {
     this.#usersArray = users;
@@ -20,7 +20,7 @@ class UserService {
 
   getUsersSorted() {
     return [...this.#usersArray].sort((a, b) =>
-      (a.name + a.lastname).localeCompare(b.name + b.lastname, "uk")
+      (a.lastname + a.name).localeCompare(b.lastname+b.name, "uk")
     );
   }
 
