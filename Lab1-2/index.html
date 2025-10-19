@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Голосіївська районна державна адміністрація</title>
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/index.css" />
+
     <style>
-      h1.logo-header
-      {
+      h1.logo-header {
         color: black;
       }
     </style>
@@ -18,19 +18,23 @@
         <img
           src="public/logo.png"
           alt="Логотип Районної державної адміністрації"
-          width="100"
+          width="70"
         />
         <h1 class="logo-header">Голосіївська районна державна адміністрація</h1>
       </div>
-      <nav aria-label="Головна навігація">
+
+      <!-- Кнопка бургер -->
+      <button class="menu-toggle" aria-label="Відкрити меню">☰</button>
+
+      <nav aria-label="Головна навігація" class="nav-menu">
         <ul>
-          <li>
-            <a href="activities.html" role="button">Напрями діяльності</a>
+          <li id="activities-li">
+            <a href="activities.html">Напрями діяльності</a>
           </li>
-          <li><a href="feedback.html" role="button">Зворотний зв’язок</a></li>
-          <li><a href="#contacts" role="button">Контакти</a></li>
-          <li><a href="#" role="button">Перейти у власний кабінет</a></li>
-          <li><a href="#" role="button">Зареєструватись</a></li>
+          <li><a href="feedback.html">Зворотний зв’язок</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+          <li><a href="#">Перейти у власний кабінет</a></li>
+          <li><a href="#">Зареєструватись</a></li>
         </ul>
       </nav>
     </header>
@@ -142,14 +146,14 @@
 
     <footer id="contacts">
       <section>
-      <h2>Контактна інформація</h2>
-      <address tabindex="0">
-        <p>Адреса: м. Київ, вул. Прикладна, 10</p>
-        <p class="contact-phone">
-          Телефон: <a href="tel:+380442901988"><b>(044) 290-19-88</b></a>
-        </p>
-        <p>Email: <a href="mailto:info@rda.gov.ua">info@rda.gov.ua</a></p>
-      </address>
+        <h2>Контактна інформація</h2>
+        <address tabindex="0">
+          <p>Адреса: м. Київ, вул. Прикладна, 10</p>
+          <p class="contact-phone">
+            Телефон: <a href="tel:+380442901988"><b>(044) 290-19-88</b></a>
+          </p>
+          <p>Email: <a href="mailto:info@rda.gov.ua">info@rda.gov.ua</a></p>
+        </address>
       </section>
       <section aria-labelledby="social-media">
         <h3 id="social-media">Посилання на соціальні мережі</h3>
@@ -159,5 +163,30 @@
         </ul>
       </section>
     </footer>
+    <script type="module" src="dist/index.js"></script>
+    <div class="overlay"></div>
+
+    <script>
+      const toggleBtn = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("nav");
+      const overlay = document.querySelector(".overlay");
+
+      toggleBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        overlay.classList.toggle("active");
+      });
+
+      overlay.addEventListener("click", () => {
+        nav.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          overlay.classList.remove("active");
+        });
+      });
+    </script>
   </body>
 </html>

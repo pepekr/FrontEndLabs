@@ -139,3 +139,31 @@ nav a[role="button"] {
 nav a[role="button"]:hover {
   transform: scale(1.05);
 }
+
+
+textarea.highlighted {
+  background-color: #e0f0ff;
+  border: 2px solid #0f6ffd;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+
+.tooltip {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
