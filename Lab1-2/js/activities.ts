@@ -1,5 +1,6 @@
 import { activitiesObj } from "./activitiesObject.js";
 
+// carousel
 const activitiesSection = document.getElementById("activities-section");
 if (!activitiesSection) throw new Error("Cannot find activities section");
 
@@ -76,7 +77,7 @@ prevBtn.addEventListener("click", () => {
 
 window.addEventListener("resize", () => showImage(currentIndex));
 
-
+// search
 const searchInput = document.getElementById(
   "search-input"
 ) as HTMLInputElement | null;

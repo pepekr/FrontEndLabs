@@ -1,50 +1,22 @@
-import React, { useState, useRef } from "react";
 import "../../styles/feedback.css";
-import { useNavigate } from "react-router-dom";
+import useHandleSubmit from "./useHandleSubmit";
+import useMouseEvents from "./useMouseEvents";
 
 const Feedback = () => {
-  const [tooltipVisible, setTooltipVisible] = useState(false);
-  const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
-  const detailsRef = useRef<HTMLTextAreaElement | null>(null);
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const navigate = useNavigate();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const form = formRef.current;
-    if (!form) return;
-
-    // ✅ check HTML5 validation
-    if (!form.checkValidity()) {
-      form.reportValidity(); // show browser’s native error tooltips
-      return;
-    }
-
-    // ✅ only reach here if all inputs are valid
-    navigate("/"); // redirect to home
-  };
-  const handleMouseEnter = () => {
-    const el = detailsRef.current;
-    if (el) {
-      const rect = el.getBoundingClientRect();
-      setTooltipPos({
-        top: rect.top + window.scrollY,
-        left: rect.right + 10 + window.scrollX,
-      });
-      setTooltipVisible(true);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setTooltipVisible(false);
-  };
+  const { handleSubmit, formRef } = useHandleSubmit();
+  const {
+    handleMouseEnter,
+    handleMouseLeave,
+    tooltipPos,
+    tooltipVisible,
+    detailsRef,
+  } = useMouseEvents();
 
   return (
     <div className="feedback-form">
       <header>
         <nav>
-          <a className="back-button" href="index.html" role="button">
+          <a className="back-button" href="/" role="button">
             До головної сторінки
           </a>
         </nav>
