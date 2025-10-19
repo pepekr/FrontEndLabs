@@ -3,3 +3,4 @@
 *.docx
 ~$*.docx
 ~$*.doc
+node_modules
